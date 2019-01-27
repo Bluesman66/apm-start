@@ -10,7 +10,9 @@ import { ProductListComponent } from './product-list.component';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: 'products', component: ProductListComponent }
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'products/:id/edit', component: ProductEditComponent }
     ])
   ],
   declarations: [
