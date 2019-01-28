@@ -13,6 +13,7 @@ import { ProductResolver } from './product-resolver.service';
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       { path: 'products/:id', component: ProductDetailComponent, resolve: { product: ProductResolver } },
+      // { path: 'products/:id', component: ProductDetailComponent, resolve: { product: 'productProvider' } },
       { path: 'products/:id/edit', component: ProductEditComponent, resolve: { product: ProductResolver } }
     ])
   ],
@@ -20,6 +21,19 @@ import { ProductResolver } from './product-resolver.service';
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent
+  ],
+  providers: [
+    ProductResolver,
+    // {
+    //   provide: 'productProvider',
+    //   useValue: () => {
+    //     return {
+    //       id: 5,
+    //       productName: 'AProduct',
+    //       description: 'Test description for the AProduct'
+    //     };
+    //   }
+    // }
   ]
 })
 export class ProductModule { }
