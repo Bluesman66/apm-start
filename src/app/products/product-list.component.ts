@@ -31,8 +31,8 @@ export class ProductListComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.listFilter = this.route.snapshot.queryParams['filterBy'] || '';
-    this.showImage = this.route.snapshot.queryParams['showImage'] === 'true';
+    this.listFilter = this.route.snapshot.queryParamMap.get('filterBy') || '';
+    this.showImage = this.route.snapshot.queryParamMap.get('showImage') === 'true';
 
     this.productService.getProducts().subscribe(
       products => {
