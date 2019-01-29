@@ -13,20 +13,25 @@ import { ProductResolver } from './product-resolver.service';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: 'products', component: ProductListComponent },
       {
-        path: 'products/:id',
-        component: ProductDetailComponent,
-        resolve: { product: ProductResolver /* 'productProvider' */ }
-      },
-      {
-        path: 'products/:id/edit',
-        component: ProductEditComponent,
-        resolve: { product: ProductResolver },
+        path: 'products',
+        component: ProductListComponent,
         children: [
-          { path: '', redirectTo: 'info', pathMatch: 'full' },
-          { path: 'info', component: ProductEditInfoComponent },
-          { path: 'tags', component: ProductEditTagsComponent }
+          {
+            path: ':id',
+            component: ProductDetailComponent,
+            resolve: { product: ProductResolver /* 'productProvider' */ }
+          },
+          {
+            path: ':id/edit',
+            component: ProductEditComponent,
+            resolve: { product: ProductResolver },
+            children: [
+              { path: '', redirectTo: 'info', pathMatch: 'full' },
+              { path: 'info', component: ProductEditInfoComponent },
+              { path: 'tags', component: ProductEditTagsComponent }
+            ]
+          }
         ]
       }
     ])
