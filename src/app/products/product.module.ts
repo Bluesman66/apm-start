@@ -7,8 +7,10 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ProductEditInfoComponent } from './product-edit/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit/product-edit-tags.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductEditGuard } from './product-guard.service';
 import { ProductListComponent } from './product-list.component';
 import { ProductResolver } from './product-resolver.service';
+import { ProductService } from './product.service';
 
 @NgModule({
   imports: [
@@ -31,6 +33,7 @@ import { ProductResolver } from './product-resolver.service';
             path: ':id/edit',
             component: ProductEditComponent,
             resolve: { product: ProductResolver },
+            canDeactivate: [ ProductEditGuard ],
             children: [
               { path: '', redirectTo: 'info', pathMatch: 'full' },
               { path: 'info', component: ProductEditInfoComponent },
@@ -49,7 +52,9 @@ import { ProductResolver } from './product-resolver.service';
     ProductEditTagsComponent
   ],
   providers: [
+    ProductService,
     ProductResolver,
+    ProductEditGuard
     // {
     //   provide: 'productProvider',
     //   useValue: () => {
