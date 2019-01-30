@@ -28,6 +28,14 @@
     </li>
   </ul>
 </nav>
+
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-md-2">
+      <router-outlet name="popup"></router-outlet>
+    </div>
+  </div>
 </div>
