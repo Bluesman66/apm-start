@@ -21,6 +21,9 @@ import { MessageService } from './message.service';
   ],
   providers: [
     MessageService
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class MessageModule { }
