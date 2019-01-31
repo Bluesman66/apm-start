@@ -7,7 +7,7 @@ import { AuthGuard } from './user/auth-guard.service';
 
 const ROUTES = [
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'products', canActivate: [AuthGuard], loadChildren: './products/product.module#ProductModule' }
+  { path: 'products', canLoad: [AuthGuard], loadChildren: './products/product.module#ProductModule' },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
