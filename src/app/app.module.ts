@@ -17,7 +17,6 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     // Imports for loading & configuring the in-memory web api
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
-
     UserModule,
     MessageModule,
     AppRoutingModule
