@@ -9,7 +9,6 @@ import { WelcomeComponent } from './home/welcome.component';
 import { MessageModule } from './messages/message.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ProductData } from './products/product-data';
-import { ProductModule } from './products/product.module';
 import { UserModule } from './user/user.module';
 
 @NgModule({
@@ -18,7 +17,7 @@ import { UserModule } from './user/user.module';
     HttpClientModule,
     // Imports for loading & configuring the in-memory web api
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
-    ProductModule,
+
     UserModule,
     MessageModule,
     AppRoutingModule
